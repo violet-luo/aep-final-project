@@ -21,3 +21,11 @@ class Mahjong:
                 if not t_str.isnumeric():
                     return False
         return True
+    
+    # 4. Each tile is integer.
+    def each_tile_is_integer(self):
+        for tile in self.tiles:
+            for t in tile:
+                if not isinstance(t, int):
+                    return False
+        return True

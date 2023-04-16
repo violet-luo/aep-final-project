@@ -33,5 +33,14 @@ class TestMahjong(unittest.TestCase):
         mahjong = Mahjong([[1]*14, [2]*14, [3]*14, [4]*13 + ['a']])
         self.assertFalse(mahjong.each_tile_is_numeric())
 
+    # 4. Test if each tile is integer.
+    def test_integer_tiles_should_return_true(self):
+        mahjong = Mahjong([[1]*14, [2]*14, [3]*14, [4]*14])
+        self.assertTrue(mahjong.each_tile_is_integer())
+    
+    def test_decimal_tiles_should_return_false(self):
+        mahjong = Mahjong([[1]*14, [2]*14, [3]*14, [4]*13 + [4.0]])
+        self.assertFalse(mahjong.each_tile_is_integer())
+
 if __name__ == '__main__':
     unittest.main()
