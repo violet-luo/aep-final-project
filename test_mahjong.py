@@ -21,11 +21,11 @@ class TestMahjong(unittest.TestCase):
         self.assertFalse(mahjong.each_player_has_14_tiles())
 
     # 3. Test if each tile is numeric.
-    def test_14_numeric_tiles_shuold_return_true(self):
+    def test_numeric_tiles_shuold_return_true(self):
         mahjong = Mahjong([[1]*14, [2]*14, [3]*14, [4]*14])
         self.assertTrue(mahjong.each_tile_is_numeric())
     
-    def test_14_numeric_tiles_in_str_shuold_return_true(self):
+    def test_numeric_tiles_in_int_and_str_shuold_return_true(self):
         mahjong = Mahjong([[1]*14, [2]*14, [3]*14, [4]*13 + ['4']])
         self.assertTrue(mahjong.each_tile_is_numeric())
 
