@@ -57,3 +57,35 @@ class Mahjong:
 
         return False
     
+    # 7. A winning hand can have one pair and four consecutives.
+    def one_pair_and_four_consecutives_is_winning_hand(self):
+        for tile in self.tiles:
+            counts = [0] * 10
+            for t in tile:
+                counts[t] += 1
+
+            def backtrack():
+                if sum(counts) == 0: # exit condition
+                    return True
+                
+                for i in range(8): # find consecutives
+                    if counts[i] >= 1 and counts[i+1] >= 1 and counts[i+2] >= 1:
+                        counts[i] -= 1
+                        counts[i+1] -= 1
+                        counts[i+2] -= 1
+                        if backtrack():
+                            return True
+                        counts[i] += 1
+                        counts[i+1] += 1
+                        counts[i+2] += 1
+
+                return False
+            
+            for i in range(10): # find pair
+                if counts[i] >= 2:
+                    counts[i] -= 2
+                    if backtrack():
+                        return True
+                    counts[i] += 2
+                    
+        return False
