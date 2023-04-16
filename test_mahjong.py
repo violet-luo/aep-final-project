@@ -55,5 +55,10 @@ class TestMahjong(unittest.TestCase):
         mahjong = Mahjong([[1]*14, [2]*14, [3]*14, [4]*13 + [10]])
         self.assertFalse(mahjong.each_tile_is_between_1_and_9())
 
+    # 6. Test if one pair and three combinations is a winning hand.
+    def test_one_pair_three_combinations_is_winning_hand_should_return_true(self):
+        mahjong = Mahjong([[1]*14, [2]*14, [3]*14, [1,1,2,2,2,3,3,3,4,4,4,5,5,5]])
+        self.assertTrue(mahjong.one_pair_and_three_combinations_is_winning_hand())
+
 if __name__ == '__main__':
     unittest.main()

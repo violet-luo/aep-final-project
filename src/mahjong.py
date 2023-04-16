@@ -1,3 +1,5 @@
+from collections import Counter
+
 class Mahjong:
     def __init__(self, tiles):
         self.tiles = tiles
@@ -37,3 +39,20 @@ class Mahjong:
                 if t not in range(1, 10):
                     return False
         return True
+    
+    # 6. A winning hand can have one pair and three combinations.
+    def one_pair_and_three_combinations_is_winning_hand(self):
+        for tile in self.tiles:
+            counter = Counter(tile)
+            
+            num_pairs, num_combinations = 0, 0
+            for cnt in counter.values():
+                if cnt == 2:
+                    num_pairs += 1
+                elif cnt == 3:
+                    num_combinations += 1
+            
+            if num_pairs == 1 and num_combinations == 4:
+                return True
+
+        return False
