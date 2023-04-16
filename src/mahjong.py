@@ -29,3 +29,11 @@ class Mahjong:
                 if not isinstance(t, int):
                     return False
         return True
+
+    # 5. Each tile is between 1 and 9.
+    def each_tile_is_between_1_and_9(self):
+        for tile in self.tiles:
+            for t in tile:
+                if t not in range(1, 10):
+                    return False
+        return True

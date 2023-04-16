@@ -42,5 +42,18 @@ class TestMahjong(unittest.TestCase):
         mahjong = Mahjong([[1]*14, [2]*14, [3]*14, [4]*13 + [4.0]])
         self.assertFalse(mahjong.each_tile_is_integer())
 
+    # 5. Test each tile is between 1 and 9.
+    def test_tiles_between_1_and_9_should_return_true(self):
+        mahjong = Mahjong([[1]*14, [2]*14, [3]*14, [4]*14])
+        self.assertTrue(mahjong.each_tile_is_between_1_and_9())
+    
+    def test_tiles_with_0_should_return_false(self):
+        mahjong = Mahjong([[1]*14, [2]*14, [3]*14, [4]*13 + [0]])
+        self.assertFalse(mahjong.each_tile_is_between_1_and_9())
+
+    def test_tiles_with_10_should_return_false(self):
+        mahjong = Mahjong([[1]*14, [2]*14, [3]*14, [4]*13 + [10]])
+        self.assertFalse(mahjong.each_tile_is_between_1_and_9())
+
 if __name__ == '__main__':
     unittest.main()
