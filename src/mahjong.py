@@ -12,3 +12,12 @@ class Mahjong:
             if len(tile) != 14:
                 return False
         return True
+    
+    # 3. Each tile is numeric.
+    def each_tile_is_numeric(self):
+        for tile in self.tiles:
+            for t in tile:
+                t_str = str(t)
+                if not t_str.isnumeric():
+                    return False
+        return True
