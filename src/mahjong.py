@@ -129,3 +129,14 @@ class Mahjong:
                     counts[i] += 2
                     
         return False
+    
+    # 9. A winning hand can have seven pairs.
+    def seven_pairs_is_a_winning_hand(self):
+        for tile in self.tiles:
+            pairs = 0
+            for i in range(1, 10):
+                if tile.count(i) == 2:
+                    pairs += 1
+            if pairs == 7:
+                return True
+        return False

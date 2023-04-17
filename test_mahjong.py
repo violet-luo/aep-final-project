@@ -90,5 +90,22 @@ class TestMahjong(unittest.TestCase):
         mahjong = Mahjong([[1]*14, [2]*14, [3]*14, [1,1,2,2,2,3,3,3,4,4,4,5,6,7]])
         self.assertTrue(mahjong.one_pair_and_four_combinations_consecutives_is_winning_hand())
 
+    # 9. Test if seven pairs is a winning hand.
+    def test_seven_pairs_is_winning_hand_should_return_true(self):
+        mahjong = Mahjong([
+            [1,1,2,2,3,3,4,4,5,5,6,6,7,7],
+            [1,1,2,2,3,3,4,4,5,5,6,6,7,7], 
+            [1,1,2,2,3,3,4,4,5,5,6,6,7,7], 
+            [1,1,2,2,3,3,4,4,5,5,6,6,7,7]])
+        self.assertTrue(mahjong.seven_pairs_is_a_winning_hand())
+
+    def test_six_pairs_is_winning_hand_should_return_false(self):
+        mahjong = Mahjong([
+            [1,1,2,2,3,3,4,4,5,5,6,6,7,8], 
+            [1,1,2,2,3,3,4,4,5,5,6,6,7,8], 
+            [1,1,2,2,3,3,4,4,5,5,6,6,7,8], 
+            [1,1,2,2,3,3,4,4,5,5,6,6,7,8]])
+        self.assertFalse(mahjong.seven_pairs_is_a_winning_hand())
+
 if __name__ == '__main__':
     unittest.main()
