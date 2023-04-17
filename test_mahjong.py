@@ -132,7 +132,7 @@ class TestMahjong(unittest.TestCase):
             [1,1,2,2,2,3,3,3,4,5,6,7,8,9]]) # one pair and combinations and consecutives
         self.assertEqual('Four combinations or four consecutives.', mahjong.get_winning_hand_type())
     
-    def test_four_combinations_consecutives_should_return_four_combinations_consecutives(self):
+    def test_four_combinations_and_consecutives_should_return_four_combinations_and_consecutives(self):
         mahjong = Mahjong([
             [1,1,2,2,3,3,4,4,5,5,6,6,7,8],
             [1,1,2,2,3,3,4,4,5,5,6,6,7,8], 
