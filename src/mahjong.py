@@ -140,3 +140,13 @@ class Mahjong:
             if pairs == 7:
                 return True
         return False
+    
+    # 10. If multiple winning hands, seven pairs > 4 combinations = 4 consecutives > 4 combinations/consecutives
+    def get_winning_hand_type(self):
+        if self.seven_pairs_is_a_winning_hand():
+            return 'Seven pairs.'
+        elif self.one_pair_and_four_combinations_is_winning_hand() or self.one_pair_and_four_consecutives_is_winning_hand():
+            return 'Four combinations or four consecutives.'
+        elif self.one_pair_and_four_combinations_consecutives_is_winning_hand():
+            return 'Four combinations/consecutives.'
+        return 'No winning hand.'
