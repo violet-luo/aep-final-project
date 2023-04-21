@@ -1,6 +1,9 @@
 from collections import Counter
 
 class Mahjong:
+    """
+    This is a class that determines whether the mahjong tiles are valid and which player wins.
+    """
     def __init__(self, tiles):
         self.tiles = tiles
     
